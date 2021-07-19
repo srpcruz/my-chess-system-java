@@ -65,10 +65,12 @@ public class Pawn extends ChessPiece {
 				mat[p.getRow()][p.getColumn()] = true;				
 			}
 			// peão pode mover duas casas na primeira jogada
-			p.setValues(position.getRow() +2 , position.getColumn());
-			Position p2 = new Position(position.getRow() +1 , position.getColumn());
-			if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p) && getBoard().positionExists(p2) && !getBoard().thereIsAPiece(p2) && getMoveCount() == 0) {
-				mat[p.getRow()][p.getColumn()] = true;				
+			if (position.getRow() +2 < 8) {
+				p.setValues(position.getRow() +2 , position.getColumn());
+				Position p2 = new Position(position.getRow() +1 , position.getColumn());
+				if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p) && getBoard().positionExists(p2) && !getBoard().thereIsAPiece(p2) && getMoveCount() == 0) {
+					mat[p.getRow()][p.getColumn()] = true;				
+				}
 			}
 			// nas diagonais - uma casa direita e esquerda mesmo que tenha uma oponente - captura
 			p.setValues(position.getRow() +1 , position.getColumn() -1);
